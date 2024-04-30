@@ -92,7 +92,10 @@ class DynamicRegistration {
    */
   async register (openidConfiguration, registrationToken, options) {
     if (!openidConfiguration) throw new Error('MISSING_OPENID_CONFIGURATION')
+    provDynamicRegistrationDebug("DEbugging versoin ****");
+    provDynamicRegistrationDebug(openidConfiguration);
     provDynamicRegistrationDebug('Starting dynamic registration process', openidConfiguration)
+
     // Get Platform registration configurations
     const configuration = await got.get(openidConfiguration).json()
     provDynamicRegistrationDebug('got configuration', configuration)
