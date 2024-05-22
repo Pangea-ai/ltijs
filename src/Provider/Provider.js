@@ -160,7 +160,7 @@ class Provider {
     if (options && options.devMode === true) this.#devMode = true
     if (options && options.ltiaas === true) this.#ltiaas = true
     if (options && options.tokenMaxAge !== undefined) this.#tokenMaxAge = options.tokenMaxAge
-
+    if (options && options.prefix) this.#prefix = options.prefix;
     // Cookie options
     if (options && options.cookies) {
       if (options.cookies.secure === true) this.#cookieOptions.secure = true
