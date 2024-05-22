@@ -207,6 +207,7 @@ class Provider {
     if (options && options.ltiaas === true) _classPrivateFieldSet(_ltiaas, this, true);
     if (options && options.tokenMaxAge !== undefined) _classPrivateFieldSet(_tokenMaxAge, this, options.tokenMaxAge);
     if (options && options.prefix) _classPrivateFieldSet(_prefix, this, options.prefix);
+    provMainDebug('Prefix: ' + _classPrivateFieldGet(_prefix, this));
     // Cookie options
     if (options && options.cookies) {
       if (options.cookies.secure === true) _classPrivateFieldGet(_cookieOptions, this).secure = true;
@@ -394,7 +395,7 @@ class Provider {
             }
             query.append('ltik', newLtik);
             const urlSearchParams = query.toString();
-            provMainDebug('Redirecting to endpoint with ltik ' + _classPrivateFieldGet(_prefix, this) + req.baseUrl + req.path + "?" + urlSearchParams);
+            provMainDebug('Redirecting to endpoint with ltik (prefix =' + _classPrivateFieldGet(_prefix, this) + ' ) ' + _classPrivateFieldGet(_prefix, this) + req.baseUrl + req.path + "?" + urlSearchParams);
             return res.redirect(_classPrivateFieldGet(_prefix, this) + req.baseUrl + req.path + "?" + urlSearchParams);
           } else {
             const state = req.body.state;

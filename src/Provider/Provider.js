@@ -161,6 +161,7 @@ class Provider {
     if (options && options.ltiaas === true) this.#ltiaas = true
     if (options && options.tokenMaxAge !== undefined) this.#tokenMaxAge = options.tokenMaxAge
     if (options && options.prefix) this.#prefix = options.prefix;
+    provMainDebug('Prefix: ' + this.#prefix);
     // Cookie options
     if (options && options.cookies) {
       if (options.cookies.secure === true) this.#cookieOptions.secure = true
@@ -353,7 +354,7 @@ class Provider {
             }
             query.append('ltik', newLtik)
             const urlSearchParams = query.toString()
-            provMainDebug('Redirecting to endpoint with ltik '+this.#prefix + req.baseUrl + req.path + "?" + urlSearchParams)
+            provMainDebug('Redirecting to endpoint with ltik (prefix ='+this.#prefix+' ) '+this.#prefix + req.baseUrl + req.path + "?" + urlSearchParams)
             return res.redirect(
               this.#prefix + req.baseUrl + req.path + "?" + urlSearchParams
             );
