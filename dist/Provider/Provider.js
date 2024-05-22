@@ -206,7 +206,7 @@ class Provider {
     if (options && options.devMode === true) _classPrivateFieldSet(_devMode, this, true);
     if (options && options.ltiaas === true) _classPrivateFieldSet(_ltiaas, this, true);
     if (options && options.tokenMaxAge !== undefined) _classPrivateFieldSet(_tokenMaxAge, this, options.tokenMaxAge);
-
+    if (options && options.prefix) _classPrivateFieldSet(_prefix, this, options.prefix);
     // Cookie options
     if (options && options.cookies) {
       if (options.cookies.secure === true) _classPrivateFieldGet(_cookieOptions, this).secure = true;
