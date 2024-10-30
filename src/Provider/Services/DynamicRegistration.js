@@ -102,7 +102,7 @@ class DynamicRegistration {
     
     provDynamicRegistrationDebug('Attempting to register Platform with issuer: ', configuration.issuer)
     // Building registration object
-    const messages = [{ type: 'LtiResourceLink' }]
+    const messages = [{ type: 'LtiResourceLinkRequest' }]
     if (this.#useDeepLinking) messages.push({ type: 'LtiDeepLinkingRequest' })
     const registration = {
       application_type: 'web',
