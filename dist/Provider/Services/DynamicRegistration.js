@@ -133,7 +133,7 @@ class DynamicRegistration {
     };
     provDynamicRegistrationDebug('Tool registration request:');
     provDynamicRegistrationDebug(registration);
-    provDynamicRegistrationDebug('Sending Tool registration request');
+    provDynamicRegistrationDebug('Sending Tool registration request '+JSON.stringify(registration));
     const body = {
       json: registration,
       headers: registrationToken ? {
@@ -141,6 +141,7 @@ class DynamicRegistration {
       } : undefined
     };
     provDynamicRegistrationDebug('Posting to ' + configuration.registration_endpoint, body);
+    provDynamicRegistrationDebug('Posting2 to ' + configuration.registration_endpoint + JSON.stringify(body));
     const registrationResponse = await got.post(configuration.registration_endpoint, body).json();
 
     // Registering Platform
