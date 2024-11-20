@@ -251,7 +251,7 @@ class Provider {
 
     // Registers main athentication and routing middleware
     const sessionValidator = async (req, res, next) => {
-      provMainDebug('Receiving request at path: ' + req.baseUrl + req.path);
+      provMainDebug('Receiving request at baseUrl =' + req.baseUrl + ', path =' + req.path);
       // Ckeck if request is attempting to initiate oidc login flow or access reserved routes
       if (req.path === _classPrivateFieldGet(_loginRoute, this) || req.path === _classPrivateFieldGet(_keysetRoute, this) || req.path === _classPrivateFieldGet(_dynRegRoute, this)) return next();
       provMainDebug('Path does not match reserved endpoints');
@@ -432,6 +432,7 @@ class Provider {
           }
         }
         provMainDebug('Ltik found');
+        provMainDebug(ltik);
         let validLtik;
         try {
           validLtik = jwt.verify(ltik, _classPrivateFieldGet(_ENCRYPTIONKEY2, this));

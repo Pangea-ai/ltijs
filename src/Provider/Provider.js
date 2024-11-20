@@ -391,6 +391,7 @@ class Provider {
         }
 
         provMainDebug('Ltik found')
+        provMainDebug(ltik);
         let validLtik
         try {
           validLtik = jwt.verify(ltik, this.#ENCRYPTIONKEY)
