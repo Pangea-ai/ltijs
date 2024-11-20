@@ -209,7 +209,7 @@ class Provider {
 
     // Registers main athentication and routing middleware
     const sessionValidator = async (req, res, next) => {
-      provMainDebug('Receiving request at path: ' + req.baseUrl + req.path)
+      provMainDebug('Receiving request at baseUrl =' + req.baseUrl +', path ='+ req.path)
       // Ckeck if request is attempting to initiate oidc login flow or access reserved routes
       if (req.path === this.#loginRoute || req.path === this.#keysetRoute || req.path === this.#dynRegRoute) return next()
 
