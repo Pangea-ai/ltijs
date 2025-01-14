@@ -530,10 +530,16 @@ class Provider {
           const query = await Request.ltiAdvantageLogin(params, platform, state)
           provMainDebug('Login request: ')
           provMainDebug(query)
-          res.redirect(url.format({
+
+          provMainDebug('Login request: ')
+          provMainDebug(query);
+          const redirectUrl = url.format({
             pathname: await platform.platformAuthEndpoint(),
             query
-          }))
+          });
+          provMainDebug(redirectUrl);
+          res.redirect(redirectUrl)
+          
         } else {
           provMainDebug('Unregistered platform attempting connection: ' + iss + ', clientId: ' + clientId)
           return this.#unregisteredPlatformCallback(req, res)
